@@ -22,6 +22,16 @@ public class ManageStudent {
         return true;
     }
 
+    public boolean DeleteStudent(int inputId){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == inputId) {
+                list.remove(i);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void GetList(){
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getId() +" "+list.get(i).getName()+" "

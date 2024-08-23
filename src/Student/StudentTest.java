@@ -6,6 +6,12 @@ public class StudentTest {
     public static void main(String[] args) {
         ManageStudent manageStudent = new ManageStudent();
         manageStudent.AddStudent(8,"Rose",16,"Glasgow");
+        manageStudent.AddStudent(9,"Lisa",12,"London");
+        Del(manageStudent);
+        manageStudent.GetList();
+
+    }
+    public static void Add(ManageStudent manageStudent){
         Scanner sc = new Scanner(System.in);
         int inputId;
         do {
@@ -26,6 +32,19 @@ public class StudentTest {
         }while (manageStudent.FoundUniqueId(inputId) == false);
 
         manageStudent.GetList();
+    }
+
+    public static void Del(ManageStudent manageStudent){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Please enter Student ID to delete: ");
+        int inputId = sc.nextInt();
+        Boolean Found = manageStudent.DeleteStudent(inputId);
+        if (Found == true) {
+            System.out.println("学生信息删除成功");
+        }else if (Found == false){
+            System.out.println("此学生id不存在");
+        }
 
     }
+
 }
