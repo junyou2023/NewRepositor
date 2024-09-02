@@ -7,7 +7,26 @@ public class StudentTest {
         ManageStudent manageStudent = new ManageStudent();
         manageStudent.AddStudent(8,"Rose",16,"Glasgow");
         manageStudent.AddStudent(9,"Lisa",12,"London");
-        Del(manageStudent);
+        Scanner sc = new Scanner(System.in);
+        Boolean operationSuccess = true;
+        do {
+            System.out.println("请输入您想要的选项");
+            System.out.println("1.添加学生");
+            System.out.println("2.删除学生");
+            int opion = sc.nextInt();
+            switch (opion){
+                case 1:
+                    Add(manageStudent);
+                    break;
+                case 2:
+                    operationSuccess = Del(manageStudent);
+                    break;
+                default:
+                    System.out.println("无效的选项，请重新选择。");
+                    operationSuccess = false;  // 操作失败
+                    break;
+            }
+        } while (!operationSuccess);
         manageStudent.GetList();
 
     }
@@ -31,20 +50,19 @@ public class StudentTest {
             }
         }while (manageStudent.FoundUniqueId(inputId) == false);
 
-        manageStudent.GetList();
     }
 
-    public static void Del(ManageStudent manageStudent){
+    public static Boolean Del(ManageStudent manageStudent){
         Scanner sc = new Scanner(System.in);
         System.out.println("Please enter Student ID to delete: ");
         int inputId = sc.nextInt();
         Boolean Found = manageStudent.DeleteStudent(inputId);
         if (Found == true) {
             System.out.println("学生信息删除成功");
-        }else if (Found == false){
+        }else {
             System.out.println("此学生id不存在");
         }
-
+        return Found;
     }
 
 }
