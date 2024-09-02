@@ -32,6 +32,18 @@ public class ManageStudent {
         return false;
     }
 
+    public boolean UpdateStudent(int inputId, String inputName, int inputAge, String inputAddress){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == inputId) {
+                list.get(i).setName(inputName);
+                list.get(i).setAge(inputAge);
+                list.get(i).setAddress(inputAddress);
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void GetList(){
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getId() +" "+list.get(i).getName()+" "
