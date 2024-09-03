@@ -14,6 +14,7 @@ public class StudentTest {
             System.out.println("1.添加学生");
             System.out.println("2.删除学生");
             System.out.println("3.修改学生");
+            System.out.println("4.查询学生");
 
             int opion = sc.nextInt();
             switch (opion){
@@ -25,6 +26,9 @@ public class StudentTest {
                     break;
                 case 3:
                     UpdateStudent(manageStudent);
+                    break;
+                case 4:
+                    CheckStudent(manageStudent);
                     break;
                 default:
                     System.out.println("无效的选项，请重新选择。");
@@ -90,25 +94,21 @@ public class StudentTest {
             }
         }while (manageStudent.FoundUniqueId(inputId) == true);
 
-    }
 
+    }
     public static void CheckStudent(ManageStudent manageStudent){
         Scanner sc = new Scanner(System.in);
         int inputId;
-        int inputName;
+        String inputName;
         do {
-            System.out.println("请输入需要查询的学生ID和姓名：");
+            System.out.println("请输入需要查询的学生ID或姓名：");
             inputId = sc.nextInt();
-            inputName = sc.();
-            if (manageStudent.FoundUniqueId(inputId) == true) {
-                manageStudent.CheckStudent()
+            inputName = sc.next();
+            if (manageStudent.CheckStudent(inputId, inputName)) {
                 break;
             } else {
-                System.out.println("学生ID不存在");
+                System.out.println("学生ID或者姓名不存在");
             }
-        }while (manageStudent.FoundUniqueId(inputId) == true);
-
+        }while (manageStudent.CheckStudent(inputId, inputName) == false);
     }
-    }
-
 }
