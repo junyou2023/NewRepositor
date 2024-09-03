@@ -92,4 +92,23 @@ public class StudentTest {
 
     }
 
+    public static void CheckStudent(ManageStudent manageStudent){
+        Scanner sc = new Scanner(System.in);
+        int inputId;
+        int inputName;
+        do {
+            System.out.println("请输入需要查询的学生ID和姓名：");
+            inputId = sc.nextInt();
+            inputName = sc.();
+            if (manageStudent.FoundUniqueId(inputId) == true) {
+                manageStudent.CheckStudent()
+                break;
+            } else {
+                System.out.println("学生ID不存在");
+            }
+        }while (manageStudent.FoundUniqueId(inputId) == true);
+
+    }
+    }
+
 }

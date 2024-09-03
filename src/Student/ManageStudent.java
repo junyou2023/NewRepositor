@@ -44,6 +44,18 @@ public class ManageStudent {
         return false;
     }
 
+    public boolean CheckStudent(int inputId, String inputName){
+        for (int i = 0; i < list.size(); i++) {
+            if (list.get(i).getId() == inputId || list.get(i).getName().equals(inputName)) {
+                System.out.println(list.get(i).getId());
+                System.out.println(list.get(i).getName());
+                System.out.println(list.get(i).getAge());
+                System.out.println(list.get(i).getAddress());
+                return true;
+            }
+        }
+        return false;
+    }
     public void GetList(){
         for (int i = 0; i < list.size(); i++) {
             System.out.println(list.get(i).getId() +" "+list.get(i).getName()+" "
